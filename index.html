@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utathya Aich - Research Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 60px; /* Space for fixed header */
+        }
+
+        /* Fixed Navigation Header */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-name {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #0066cc;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            display: flex;
+            gap: 40px;
+            margin: 40px 0 60px 0;
+            align-items: flex-start;
+        }
+
+        .profile-image {
+            flex: 0 0 200px;
+        }
+
+        .profile-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .profile-details {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .profile-title {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .profile-affiliation {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .profile-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .profile-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: #f5f5f5;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .profile-links a:hover {
+            background: #0066cc;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 80px;
+            scroll-margin-top: 80px; /* Offset for fixed header */
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #333;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* About Section */
+        .about-content {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+        }
+
+        /* Research Interests */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .interest-card {
+            padding: 20px;
+            background: #f8f8f8;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .interest-card:hover {
+            background: #e8f0fe;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .interest-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .interest-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Updates/News Section */
+        .updates-list {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .update-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+
+        .update-item:hover {
+            background: #f0f0f0;
+        }
+
+        .update-date {
+            flex: 0 0 100px;
+            color: #0066cc;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .update-content {
+            flex: 1;
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .update-content a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .update-content a:hover {
+            text-decoration: underline;
+        }
+
+        .update-badge {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        /* Publication Tabs */
+        .pub-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .pub-tab {
+            padding: 12px 25px;
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            font-family: inherit;
+        }
+
+        .pub-tab:hover {
+            color: #333;
+            background-color: #f8f8f8;
+        }
+
+        .pub-tab.active {
+            color: #0066cc;
+            font-weight: 500;
+        }
+
+        .pub-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #0066cc;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        /* Paper Entry */
+        .paper-row {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 35px;
+            position: relative;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .paper-row:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transform: translateX(5px);
+        }
+
+        .paper-row.highlighted {
+            background-color: #ffffd0;
+            border-left: 4px solid #ffd700;
+        }
+
+        .paper-thumbnail {
+            flex: 0 0 160px;
+        }
+
+        .thumbnail-container {
+            position: relative;
+            width: 160px;
+            height: 120px;
+            overflow: hidden;
+            border-radius: 4px;
+            background: #f5f5f5;
+        }
+
+        .thumbnail-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail-container .hover-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .paper-row:hover .thumbnail-container .hover-image {
+            opacity: 1;
+        }
+
+        .paper-details {
+            flex: 1;
+        }
+
+        .paper-title {
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .paper-title a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .paper-title a:hover {
+            text-decoration: underline;
+        }
+
+        .paper-authors {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+
+        .paper-authors a {
+            color: #555;
+            text-decoration: none;
+        }
+
+        .paper-authors a:hover {
+            text-decoration: underline;
+        }
+
+        .paper-authors strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .paper-venue {
+            font-size: 0.95rem;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .paper-links {
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .paper-links a {
+            color: #0066cc;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .paper-links a:hover {
+            text-decoration: underline;
+        }
+
+        .paper-description {
+            font-size: 0.95rem;
+            color: #555;
+            margin-top: 12px;
+            line-height: 1.6;
+        }
+
+        /* Personal Section */
+        .personal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .personal-item {
+            padding: 25px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+
+        .personal-item h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .personal-item p,
+        .personal-item ul {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .personal-item ul {
+            list-style-position: inside;
+            margin-left: 10px;
+        }
+
+        .personal-item li {
+            margin-bottom: 8px;
+        }
+
+        /* Gallery */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 1;
+            background: #f0f0f0;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Year subsections in publications */
+        .year-section {
+            margin-bottom: 40px;
+        }
+
+        .year-header {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #444;
+            margin: 30px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        /* Highlight for intro text */
+        .highlight {
+            background-color: #ffffd0;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        /* Badge styles */
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .badge.oral {
+            background-color: #ff6b6b;
+            color: white;
+        }
+
+        .badge.spotlight {
+            background-color: #ffd93d;
+            color: #333;
+        }
+
+        .badge.best-paper {
+            background-color: #6bcf7f;
+            color: white;
+        }
+
+        .badge.new {
+            background-color: #ff4757;
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 120px;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .profile-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-image {
+                flex: none;
+                width: 200px;
+            }
+
+            .profile-links {
+                justify-content: center;
+            }
+
+            .paper-row {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            .paper-thumbnail {
+                flex: none;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .thumbnail-container {
+                width: 100%;
+                height: 180px;
+            }
+
+            .interests-grid,
+            .personal-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Scroll indicator for updates */
+        .updates-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .updates-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .updates-list::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        .updates-list::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Navigation Header -->
+    <header class="nav-header">
+        <div class="nav-container">
+            <div class="nav-name">Utathya Aich</div>
+            <nav class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#research">Research</a>
+                <a href="#updates">Updates</a>
+                <a href="#publications">Publications</a>
+                <a href="#personal">Personal</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Profile Section -->
+<section id="home" class="section">
+    <div class="profile-section">
+        <div class="profile-image">
+            <img src="images/profile.jpg" alt="Utathya Aich">
+        </div>
+        <div class="profile-details">
+            <h2 style="color:#4A90E2; font-weight:bold; font-size:28px; margin-bottom:10px;">
+                Utathya Aich
+            </h2>
+
+            <p style="color:#1A1A1A; font-size:16px; margin-bottom:6px;">
+                <strong style="color:#E67E22;">Software Engineer (ML)</strong>, 
+                <a href="https://www.cnhindustrial.com" target="_blank" style="color:#4A90E2; text-decoration:none; font-weight:600;"
+                   onmouseover="this.style.color='#127a3a';" onmouseout="this.style.color='#4A90E2';">
+                    CNH Industrial
+                </a>, Gurgaon, India
+            </p>
+
+            <p style="color:#16A085; font-size:16px; margin-bottom:12px;">
+                Building <a href="https://researchernet.ai" target="_blank" style="color:#E74C3C; font-weight:bold; text-decoration:none;"
+                            onmouseover="this.style.color='#D35400';" onmouseout="this.style.color='#E74C3C';">
+                    ResearcherNet
+                </a>, the Next Generation AI Research Platform
+            </p>
+
+            <div style="display:flex; gap:10px; align-items:center; margin-top:6px; flex-wrap:wrap;">
+                <a href="mailto:youremail@example.com" style="text-decoration:none;">
+                    <button aria-label="Email" style="border:1px solid #127a3a; background:#127a3a; color:#fff; padding:8px 14px; border-radius:8px; font-weight:600; cursor:pointer;"
+                            onmouseover="this.style.background='#0f5e2b';" onmouseout="this.style.background='#127a3a';">
+                        Contact
+                    </button>
+                </a>
+                <a href="/mnt/data/Utathya_Aich_Coorporate.pdf" style="text-decoration:none;">
+                    <button aria-label="Download CV" style="border:1px solid #127a3a; background:transparent; color:#127a3a; padding:8px 14px; border-radius:8px; font-weight:600; cursor:pointer;"
+                            onmouseover="this.style.background='#127a3a'; this.style.color='#fff';" onmouseout="this.style.background='transparent'; this.style.color='#127a3a';">
+                        View CV
+                    </button>
+                </a>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:18px; gap:18px; flex-wrap:wrap;">
+                <p style="margin:0; color:#2d3a33; font-size:13.6px;">
+                    <strong style="color:#127a3a;">Open to:</strong> new research collaborations · mentoring interns · PhD applications (Fall 2026)
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        <!-- About Section -->
+<section id="about" class="section">
+    <h2 class="section-title">About Me</h2>
+    <!-- <div class="about-content">
+        <p>
+            I am a Machine Learning Engineer and Researcher working at the intersection of 
+            multimodal learning, large language models, and computer vision. At CNH Industrial, 
+            I design and deploy production-scale AI systems including enterprise-grade 
+            LLM + RAG platforms, geospatial vision pipelines, and knowledge-graph–driven 
+            reasoning workflows. My work blends research depth with real-world engineering impact.
+        </p>
+
+        <p>
+            My research interests span multimodal representation learning, document intelligence,
+            medical imaging, foundation models, and efficient training strategies for LLMs and VLMs. 
+            I actively collaborate with researchers across Jadavpur University, IIIT Bangalore, 
+            University of Liverpool, and ISI Kolkata on projects involving cross-modal alignment, 
+            hallucination detection, and interpretable model behavior.
+        </p>
+
+        <p>
+            I have published in reputed venues such as 
+            <span style="color:green; font-weight:bold;">MIUA</span>, 
+            <span style="color:green; font-weight:bold;">ICDAR (CORE A)</span>, 
+            <span style="color:green; font-weight:bold;">IJCNLP–AACL</span>, 
+            <span style="color:green; font-weight:bold;">SIPAIM</span>, 
+            <span style="color:green; font-weight:bold;">Scientific Reports</span>, 
+            and SN Computer Science. My contributions include medical image segmentation, 
+            layout understanding, multimodal datasets, and information-fidelity analysis in LLMs. 
+            I have also filed a patent on automated semantic grading and subjective answer evaluation.
+        </p>
+
+        <p>
+            Beyond research, I believe in open, reproducible science and in building AI systems 
+            that are reliable, interpretable, and accessible. I enjoy creating human-centered 
+            AI tools that improve clarity, trust, and efficiency in real-world applications.
+        </p>
+
+        <p>
+            I am currently <span style="color:green; font-weight:bold;">applying for PhD programs for Fall 2026</span>, 
+            and I am open to <span style="color:rgb(2, 2, 2); font-weight:bold;">new research collaborations</span>. 
+            I am also <span style="color:rgb(0, 0, 0); font-weight:bold;">looking for motivated interns</span> 
+            interested in LLMs, computer vision, agents, and multimodal AI research.
+        </p>
+    </div> -->
+    <div style="display:flex; gap:22px; align-items:center;">
+    <!-- optional profile image -->
+    <!-- <div style="flex:0 0 108px; height:108px; border-radius:12px; overflow:hidden; box-shadow:0 6px 18px rgba(12,20,30,0.06);">
+      <img src="/images/profile.jpg" alt="Profile photo" style="width:100%; height:100%; object-fit:cover;">
+    </div> -->
+
+    <!-- main content -->
+    <div style="flex:1; min-width:0;">
+      <h1 id="hero-title" style="margin:0 0 6px 0; font-size:20px; font-weight:700; color:#0b2b17;">
+        Principal Research Scientist — <span style="font-weight:700; color:#0b2b17;">Google DeepMind</span> · San Francisco
+      </h1>
+
+      <p style="margin:6px 0 12px 0; color:#32403b; line-height:1.45; font-size:14.6px;">
+        I lead a compact team focused on <strong style="color:#127a3a;">NeRF & neural scene representation</strong>. At Google I've shipped features and research spanning <em>Glass, Lens Blur, HDR+, VR, Portrait Mode, Portrait Light, Maps</em>, and Shopping — balancing deep research with product-quality engineering.
+      </p>
+
+      <p style="margin:0 0 12px 0; color:#32403b; line-height:1.45; font-size:14.6px;">
+        I hold a PhD from <strong>UC Berkeley</strong> (advisor: Jitendra Malik) and received the <strong style="color:#127a3a;">PAMI Young Researcher Award</strong>. My core interests are <strong style="color:#127a3a;">multimodal learning, LLMs & agents, and visual scene understanding</strong>.
+      </p>
+
+      <!-- <div style="display:flex; gap:10px; align-items:center; margin-top:6px; flex-wrap:wrap;"> -->
+        <!-- <a href="mailto:youremail@example.com" style="text-decoration:none;">
+          <button aria-label="Email" style="border:1px solid #127a3a; background:#127a3a; color:#fff; padding:8px 14px; border-radius:8px; font-weight:600; cursor:pointer;">
+            Contact
+          </button>
+        </a> -->
+
+        <!-- <a href="/mnt/data/Utathya_Aich_Coorporate.pdf" style="text-decoration:none;">
+          <button aria-label="Download CV" style="border:1px solid #127a3a; background:transparent; color:#127a3a; padding:8px 14px; border-radius:8px; font-weight:600; cursor:pointer;">
+            View CV
+          </button>
+        </a> -->
+
+        <!-- <a href="/mnt/data/Utathya_Aich_PHD (1) (1).pdf" style="text-decoration:none;">
+          <button aria-label="PhD Dossier" style="border:1px dashed #127a3a; background:transparent; color:#127a3a; padding:8px 14px; border-radius:8px; font-weight:600; cursor:pointer;">
+            PhD Dossier
+          </button>
+        </a> -->
+
+        <!-- <a href="https://scholar.google.com" target="_blank" rel="noopener noreferrer" style="margin-left:6px; color:#127a3a; font-weight:600; font-size:13px; text-decoration:underline;">
+          Google Scholar
+        </a> -->
+      <!-- </div> -->
+    </div>
+  </div>
+
+  <!-- compact metadata row -->
+  <!-- <div style="display:flex; gap:18px; margin-top:16px; align-items:center; flex-wrap:wrap;">
+    <span style="background:#eaf8ec; color:#127a3a; padding:6px 10px; border-radius:999px; font-weight:600; font-size:13px;">NeRF · Neural Rendering</span>
+    <span style="background:#f0f9f6; color:#1b6b3a; padding:6px 10px; border-radius:999px; font-weight:600; font-size:13px;">Multimodal · LLMs/Agents</span>
+    <span style="background:#fff9ec; color:#8a6b00; padding:6px 10px; border-radius:999px; font-weight:600; font-size:13px;">Visual Scene Understanding</span>
+  </div> -->
+
+  <!-- compact footer / CTA -->
+  <!-- <div style="display:flex; justify-content:space-between; align-items:center; margin-top:18px; gap:18px; flex-wrap:wrap;">
+    <p style="margin:0; color:#2d3a33; font-size:13.6px;">
+      <strong style="color:#127a3a;">Open to:</strong> new research collaborations · mentoring interns · PhD applications (Fall 2026)
+    </p> -->
+
+    <!-- <div style="font-size:13px; color:#47524b;">
+      <span style="font-weight:700; color:#0b2b17;">Recent demo:</span> Nutrition & Web Agents — showcased at <em>CES 2025</em>
+    </div> -->
+  <!-- </div> -->
+</section>
+
+
+
+        <!-- Research Interests Section -->
+        <section id="research" class="section">
+            <h2 class="section-title">Research Interests</h2>
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <div class="interest-title">Neural Rendering</div>
+                    <div class="interest-description">
+                        Developing neural representations for 3D scenes, including NeRF and its extensions for 
+                        high-quality view synthesis and scene understanding.
+                    </div>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-title">3D Reconstruction</div>
+                    <div class="interest-description">
+                        Creating methods to recover 3D structure from images, focusing on shape, motion, and 
+                        appearance estimation from visual data.
+                    </div>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-title">Computational Photography</div>
+                    <div class="interest-description">
+                        Advancing techniques in HDR imaging, deblurring, and image enhancement using both 
+                        traditional and learning-based approaches.
+                    </div>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-title">Generative AI</div>
+                    <div class="interest-description">
+                        Exploring diffusion models and other generative techniques for creating and editing 
+                        3D content and images.
+                    </div>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-title">Computer Vision</div>
+                    <div class="interest-description">
+                        Fundamental problems in vision including object detection, segmentation, and understanding 
+                        physical properties from images.
+                    </div>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-title">Machine Learning</div>
+                    <div class="interest-description">
+                        Developing new architectures and training methods for vision tasks, with focus on 
+                        efficiency and generalization.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Updates Section -->
+        <section id="updates" class="section">
+            <h2 class="section-title">Recent Updates</h2>
+            <div class="updates-list">
+                <div class="update-item">
+                    <div class="update-date">Nov 2025</div>
+                    <div class="update-content">
+                        <span class="update-badge">NEW</span>
+                        Our paper on <a href="#">Bolt3D: Generating 3D Scenes in Seconds</a> has been accepted as a highlight at ICCV 2025!
+                    </div>
+                </div>
+                <div class="update-item">
+                    <div class="update-date">Oct 2025</div>
+                    <div class="update-content">
+                        NExF paper on learning neural exposure fields is now available on <a href="https://arxiv.org/abs/2510.08279">arXiv</a>.
+                    </div>
+                </div>
+                <div class="update-item">
+                    <div class="update-date">Sep 2025</div>
+                    <div class="update-content">
+                        Invited talk at Stanford Vision Lab on "The Future of Neural Rendering".
+                    </div>
+                </div>
+                <div class="update-item">
+                    <div class="update-date">Aug 2025</div>
+                    <div class="update-content">
+                        Released code for our CVPR 2025 paper on efficient 3D Gaussian splatting.
+                    </div>
+                </div>
+                <div class="update-item">
+                    <div class="update-date">Jul 2025</div>
+                    <div class="update-content">
+                        Three papers accepted to NeurIPS 2025! Check out the publications section for details.
+                    </div>
+                </div>
+                <div class="update-item">
+                    <div class="update-date">Jun 2025</div>
+                    <div class="update-content">
+                        Serving as Area Chair for CVPR 2026. Looking forward to seeing great submissions!
+                    </div>
+                </div>
+                <div class="update-item">
+                    <div class="update-date">May 2025</div>
+                    <div class="update-content">
+                        Our work on real-time neural rendering featured in Google AI blog.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="section">
+            <h2 class="section-title">Publications</h2>
+            
+            <!-- Publication Tabs -->
+            <div class="pub-tabs">
+                <!-- <button class="pub-tab active" onclick="showTab('all')">All Papers</button> -->
+                <button class="pub-tab" onclick="showTab('2025')">2025</button>
+                <button class="pub-tab" onclick="showTab('2024')">2024</button>
+                <!-- <button class="pub-tab" onclick="showTab('2023')">2023</button> -->
+                <button class="pub-tab" onclick="showTab('inreview')">In Review</button>
+                <button class="pub-tab" onclick="window.location.href='YOUR_LINK_HERE'"> All Papers</button>
+            </div>
+
+            
+
+            <!-- 2025 Tab -->
+            <div id="tab-2025" class="tab-content active">
+                <!-- NExF Paper -->
+                <div class="paper-row">
+                    <div class="paper-thumbnail">
+                        <div class="thumbnail-container">
+                            <img src="images/nexf_before.jpg" alt="NExF">
+                            <img src="images/nexf_after.jpg" alt="NExF hover" class="hover-image">
+                        </div>
+                    </div>
+                    <div class="paper-details">
+                        <div class="paper-title">
+                            <a href="https://m-niemeyer.github.io/nexf/">
+                                NExF: Learning Neural Exposure Fields for View Synthesis
+                            </a>
+                        </div>
+                        <div class="paper-authors">
+                            <a href="https://m-niemeyer.github.io/">Michael Niemeyer</a>,
+                            <a href="https://campar.in.tum.de/Main/FabianManhardt">Fabian Manhardt</a>,
+                            <a href="http://www.lix.polytechnique.fr/Labo/Marie-Julie.RAKOTOSAONA/">Marie-Julie Rakotosaona</a>,
+                            <a href="https://moechsle.github.io">Michael Oechsle</a>,
+                            <a href="https://ait.ethz.ch/people/ctsalico">Christina Tsalicoglou</a>,
+                            <a href="https://scholar.google.com/citations?user=ml3laqEAAAAJ&hl=ja">Keisuke Tateno</a>,
+                            <strong>Utathya Aich</strong>,
+                            <a href="https://federicotombari.github.io/">Federico Tombari</a>
+                        </div>
+                        <div class="paper-venue">
+                            <em>NeurIPS</em>, 2025
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://m-niemeyer.github.io/nexf/">project page</a>
+                            /
+                            <a href="https://arxiv.org/abs/2510.08279">arXiv</a>
+                        </div>
+                        <div class="paper-description">
+                            Learning a neural field that optimizes exposure for each 3D point enables high-quality 3D-consistent view synthesis despite extreme exposure variation during capture.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bolt3D Paper - Highlighted -->
+                <div class="paper-row highlighted">
+                    <div class="paper-thumbnail">
+                        <div class="thumbnail-container">
+                            <img src="images/bolt3d.jpg" alt="Bolt3D">
+                            <video autoplay muted loop class="hover-image">
+                                <source src="images/bolt3d.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="paper-details">
+                        <div class="paper-title">
+                            <a href="https://szymanowiczs.github.io/bolt3d">
+                                Bolt3D: Generating 3D Scenes in Seconds
+                            </a>
+                            <span class="badge spotlight">Spotlight</span>
+                        </div>
+                        <div class="paper-authors">
+                            <a href="https://szymanowiczs.github.io/">Stanislaw Szymanowicz</a>,
+                            <a href="https://jasonyzhang.com">Jason Y. Zhang</a>,
+                            <a href="https://pratulsrinivasan.github.io">Pratul Srinivasan</a>,
+                            <a href="https://ruiqigao.github.io">Ruiqi Gao</a>,
+                            <a href="https://github.com/ArthurBrussee">Arthur Brussee</a>,
+                            <a href="https://holynski.org">Aleksander Holynski</a>,
+                            <a href="https://ricardomartinbrualla.com">Ricardo Martin-Brualla</a>,
+                            <strong>Utathya Aich</strong>,
+                            <a href="https://henzler.github.io">Philipp Henzler</a>
+                        </div>
+                        <div class="paper-venue">
+                            <em>ICCV</em>, 2025
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://szymanowiczs.github.io/bolt3d">project page</a>
+                            /
+                            <a href="https://szymanowiczs.github.io/bolt3d">arXiv</a>
+                        </div>
+                        <div class="paper-description">
+                            By training a latent diffusion model to directly output 3D Gaussians we enable fast (~6 seconds on a single GPU) feed-forward 3D scene generation.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EVER Paper -->
+                <div class="paper-row">
+                    <div class="paper-thumbnail">
+                        <div class="thumbnail-container">
+                            <img src="images/ever_before.png" alt="EVER">
+                            <img src="images/ever_after.png" alt="EVER hover" class="hover-image">
+                        </div>
+                    </div>
+                    <div class="paper-details">
+                        <div class="paper-title">
+                            <a href="https://half-potato.gitlab.io/posts/ever/">
+                                EVER: Exact Volumetric Ellipsoid Rendering for Real-time View Synthesis
+                            </a>
+                        </div>
+                        <div class="paper-authors">
+                            Authors to be added
+                        </div>
+                        <div class="paper-venue">
+                            <em>Conference</em>, 2025
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://half-potato.gitlab.io/posts/ever/">project page</a>
+                        </div>
+                        <div class="paper-description">
+                            Paper description to be added.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2024 Tab -->
+            <div id="tab-2024" class="tab-content">
+                <div class="paper-row">
+                    <div class="paper-thumbnail">
+                        <div class="thumbnail-container">
+                            <img src="images/2024_paper1.jpg" alt="2024 Paper">
+                        </div>
+                    </div>
+                    <div class="paper-details">
+                        <div class="paper-title">
+                            <a href="#">Sample 2024 Publication Title</a>
+                            <span class="badge oral">Oral</span>
+                        </div>
+                        <div class="paper-authors">
+                            First Author, Second Author, <strong>Utathya Aich</strong>, Last Author
+                        </div>
+                        <div class="paper-venue">
+                            <em>CVPR</em>, 2024
+                        </div>
+                        <div class="paper-links">
+                            <a href="#">project page</a>
+                            /
+                            <a href="#">paper</a>
+                            /
+                            <a href="#">code</a>
+                        </div>
+                        <div class="paper-description">
+                            Add your 2024 paper description here.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2023 Tab -->
+            <div id="tab-2023" class="tab-content">
+                <div class="paper-row highlighted">
+                    <div class="paper-thumbnail">
+                        <div class="thumbnail-container">
+                            <img src="images/2023_paper1.jpg" alt="2023 Paper">
+                        </div>
+                    </div>
+                    <div class="paper-details">
+                        <div class="paper-title">
+                            <a href="#">Important 2023 Publication</a>
+                            <span class="badge best-paper">Best Paper</span>
+                        </div>
+                        <div class="paper-authors">
+                            Author Name, <strong>Utathya Aich</strong>, Senior Author
+                        </div>
+                        <div class="paper-venue">
+                            <em>ICCV</em>, 2023
+                        </div>
+                        <div class="paper-links">
+                            <a href="#">paper</a>
+                            /
+                            <a href="#">supplementary</a>
+                        </div>
+                        <div class="paper-description">
+                            Add your 2023 paper description here.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- In Review Tab -->
+            <div id="tab-inreview" class="tab-content">
+                <div class="paper-row">
+                    <div class="paper-thumbnail">
+                        <div class="thumbnail-container">
+                            <img src="images/inreview1.jpg" alt="In Review">
+                        </div>
+                    </div>
+                    <div class="paper-details">
+                        <div class="paper-title">
+                            <a href="#">Paper Title Under Review</a>
+                            <span class="badge new">Under Review</span>
+                        </div>
+                        <div class="paper-authors">
+                            First Author, <strong>Utathya Aich</strong>, Other Authors
+                        </div>
+                        <div class="paper-venue">
+                            <em>Submitted to CVPR 2026</em>
+                        </div>
+                        <div class="paper-links">
+                            <a href="#">arXiv</a>
+                        </div>
+                        <div class="paper-description">
+                            Paper currently under review. Details will be updated after acceptance.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-row">
+                    <div class="paper-thumbnail">
+                        <div class="thumbnail-container">
+                            <img src="images/inreview2.jpg" alt="In Review">
+                        </div>
+                    </div>
+                    <div class="paper-details">
+                        <div class="paper-title">
+                            <a href="#">Another Paper Under Review</a>
+                            <span class="badge new">Under Review</span>
+                        </div>
+                        <div class="paper-authors">
+                            Author Names, <strong>Utathya Aich</strong>, Senior Author
+                        </div>
+                        <div class="paper-venue">
+                            <em>Submitted to SIGGRAPH 2026</em>
+                        </div>
+                        <div class="paper-links">
+                            <a href="#">preprint coming soon</a>
+                        </div>
+                        <div class="paper-description">
+                            Exciting work on next-generation neural rendering. More details coming soon.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Section -->
+        <section id="personal" class="section">
+            <h2 class="section-title">Personal</h2>
+            <div class="personal-grid">
+                <div class="personal-item">
+                    <h3>Outside of Research</h3>
+                    <p>
+                        When I'm not working on computer vision problems, I enjoy hiking in the Bay Area hills, 
+                        photography (especially landscape and architectural), and playing classical guitar. 
+                        I'm also an avid reader of science fiction and enjoy exploring the intersection of 
+                        technology and art.
+                    </p>
+                </div>
+                <div class="personal-item">
+                    <h3>Favorite Books</h3>
+                    <ul>
+                        <li>"The Three-Body Problem" by Liu Cixin</li>
+                        <li>"Gödel, Escher, Bach" by Douglas Hofstadter</li>
+                        <li>"The Structure of Scientific Revolutions" by Thomas Kuhn</li>
+                        <li>"Snow Crash" by Neal Stephenson</li>
+                        <li>"The Art of Computer Programming" by Donald Knuth</li>
+                    </ul>
+                </div>
+                <div class="personal-item">
+                    <h3>Teaching & Mentoring</h3>
+                    <p>
+                        I'm passionate about mentoring the next generation of researchers. I've had the privilege 
+                        of working with many talented PhD students and interns who have gone on to do amazing 
+                        things in academia and industry. If you're interested in working with me, please reach 
+                        out with your research interests and background.
+                    </p>
+                </div>
+                <div class="personal-item">
+                    <h3>Photography</h3>
+                    <p>
+                        As someone who works on computational photography, I find traditional photography to be 
+                        both a hobby and a source of inspiration. Here are some recent shots from my travels.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Photo Gallery
+            <div class="photo-gallery">
+                <div class="photo-item">
+                    <img src="images/photo1.jpg" alt="Photography 1">
+                </div>
+                <div class="photo-item">
+                    <img src="images/photo2.jpg" alt="Photography 2">
+                </div>
+                <div class="photo-item">
+                    <img src="images/photo3.jpg" alt="Photography 3">
+                </div>
+                <div class="photo-item">
+                    <img src="images/photo4.jpg" alt="Photography 4">
+                </div>
+            </div> -->
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: #2c3e50; color: white; padding: 40px 0; margin-top: 80px;">
+        <div style="max-width: 900px; margin: 0 auto; padding: 0 20px; text-align: center;">
+            <h3 style="font-size: 1.2rem; font-weight: 400; margin-bottom: 15px; color: white;">Credits & Acknowledgments</h3>
+            <p style="color: #bdc3c7; line-height: 1.8; margin-bottom: 10px;">
+                This website template was inspired by the clean, academic design of 
+                <a href="https://www.iro.umontreal.ca/~agrawal/" style="color: #3498db; text-decoration: none;">Aishwarya Agrawal's website</a> 
+                and other academic portfolio sites. Special thanks to all my collaborators and 
+                students who have contributed to the research presented here.
+            </p>
+            <p style="color: #95a5a6; font-size: 0.9rem; margin-top: 20px;">
+                © 2025 Utathya Aich. Built with vanilla HTML, CSS, and JavaScript.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab switching functionality
+        function showTab(tabName) {
+            // Hide all tab contents
+            const allContents = document.querySelectorAll('.tab-content');
+            allContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            const allTabs = document.querySelectorAll('.pub-tab');
+            allTabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab content
+            const selectedContent = document.getElementById(`tab-${tabName}`);
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+            }
+
+            // Add active class to clicked tab
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+        }
+
+        // Navigation highlighting based on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            function highlightNavOnScroll() {
+                let scrollPosition = window.scrollY + 100;
+
+                sections.forEach((section, index) => {
+                    const sectionTop = section.offsetTop;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        const correspondingLink = document.querySelector(`.nav-links a[href="#${section.id}"]`);
+                        if (correspondingLink) {
+                            correspondingLink.classList.add('active');
+                        }
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', highlightNavOnScroll);
+            highlightNavOnScroll(); // Initial call
+
+            // Smooth scrolling for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
